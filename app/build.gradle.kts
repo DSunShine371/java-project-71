@@ -26,6 +26,7 @@ java {
 dependencies {
     implementation("org.apache.commons:commons-lang3:3.17.0")
     implementation("org.apache.commons:commons-collections4:4.4")
+    implementation("info.picocli:picocli:4.7.6")
 
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation(platform("org.junit:junit-bom:5.12.1"))
