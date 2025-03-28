@@ -36,5 +36,6 @@ public class Main implements Runnable {
         System.out.println("Running with format: " + format);
         System.out.println("Filepath1: " + filepath1);
         System.out.println("Filepath2: " + filepath2);
+
     }
 }
