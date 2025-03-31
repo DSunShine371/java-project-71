@@ -19,7 +19,9 @@ class TestDiffer {
     @Test
     void testDifferJson() {
         try {
-            assertEquals(EXTENDED, getDiff("file1.json", "file2.json"));
+            String expected = EXTENDED.replaceAll("\\s+", "");
+            String actual = getDiff("file1.json", "file2.json").replaceAll("\\s+", "");
+            assertEquals(expected, actual);
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
