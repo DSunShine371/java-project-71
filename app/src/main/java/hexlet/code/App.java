@@ -5,6 +5,10 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
+import java.util.concurrent.Callable;
+
+import static hexlet.code.Differ.getDiff;
+
 @Command(
         name = "app",
         mixinStandardHelpOptions = true,
@@ -12,7 +16,7 @@ import picocli.CommandLine.Parameters;
         description = "Compares two configuration files and shows a difference.",
         customSynopsis = "app [-hV] [-f=format] filepath1 filepath2"
 )
-public class Main implements Runnable {
+public class App implements Callable<Integer> {
     @Option(
             names = {"-f", "--format"},
             description = "output format [default: stylish]",
@@ -28,14 +32,18 @@ public class Main implements Runnable {
 
 
     public static void main(String[] args) {
-        new CommandLine(new Main()).execute(args);
+        new CommandLine(new App()).execute(args);
     }
 
     @Override
-    public void run() {
-        System.out.println("Running with format: " + format);
-        System.out.println("Filepath1: " + filepath1);
-        System.out.println("Filepath2: " + filepath2);
-
+    public Integer call() {
+        try {
+            String resultByDiffer = getDiff(filepath1, filepath2);
+            System.out.println(resultByDiffer);
+            return 0;
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            return 1;
+        }
     }
 }

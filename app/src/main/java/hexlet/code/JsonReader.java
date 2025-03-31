@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Map;
 
 public class JsonReader {
-    public static Map<String, Object> readJsonFile(String filePath) throws Exception {
+    public static Map<String, Object> readFile(String filePath) throws Exception {
         String content = Files.readString(Path.of(filePath));
 
         if (content == null || content.trim().isEmpty()) {

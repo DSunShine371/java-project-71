@@ -12,7 +12,7 @@ group = "hexlet.code"
 version = "1.0"
 
 application {
-    mainClass.set("hexlet.code.Main")
+    mainClass.set("hexlet.code.App")
 }
 
 repositories {

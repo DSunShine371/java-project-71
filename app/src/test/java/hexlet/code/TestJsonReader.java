@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static hexlet.code.JsonReader.readJsonFile;
+import static hexlet.code.JsonReader.readFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestJsonReader {
@@ -26,13 +26,13 @@ public class TestJsonReader {
 
     @Test
     public void testReadJsonFile1() throws Exception {
-        Map<String, Object> actualMap = readJsonFile("file1.json");
+        Map<String, Object> actualMap = readFile("file1.json");
             assertEquals(expectedMap, actualMap);
     }
 
     @Test
     public void testReadEmptyJsonFile() throws Exception {
-        Map<String, Object> actualMap = readJsonFile("emptyFile.json");
+        Map<String, Object> actualMap = readFile("emptyFile.json");
             assertEquals(expectedEmptyMap, actualMap);
     }
 
