@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 import static hexlet.code.JsonReader.readFile;
 
-public class Differ {
+public final class Differ {
     private Differ() {
         throw new IllegalStateException("Utility class");
     }

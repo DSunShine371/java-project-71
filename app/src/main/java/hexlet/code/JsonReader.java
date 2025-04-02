@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.Map;
 
-public class JsonReader {
+public final class JsonReader {
     private JsonReader() {
         throw new IllegalStateException("Utility class");
     }
@@ -22,6 +22,6 @@ public class JsonReader {
         }
 
         ObjectMapper parserJson = new ObjectMapper();
-        return parserJson.readValue(content, new TypeReference<>() {});
+        return parserJson.readValue(content, new TypeReference<>() { });
     }
 }
