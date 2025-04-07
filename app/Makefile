@@ -6,6 +6,6 @@ run-dist:
 	./build/install/app/bin/app file1.json file2.json
 endif
 build:
-	./gradlew build
+	./gradle build
 report:
 	./gradlew test jacocoTestReport
