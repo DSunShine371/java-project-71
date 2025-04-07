@@ -33,15 +33,15 @@ public final class Differ {
                 Object value2 = mapOfFile2.get(key);
 
                 if (Objects.equals(value1, value2)) {
-                    result.append(String.format("    %s: %s%n", key, normaliseValue(value1)));
+                    result.append("    ").append(key).append(": ").append(normaliseValue(value1)).append("\n");
                 } else {
-                    result.append(String.format("  - %s: %s%n", key, normaliseValue(value1)));
-                    result.append(String.format("  + %s: %s%n", key, normaliseValue(value2)));
+                    result.append("  - ").append(key).append(": ").append(normaliseValue(value1)).append("\n");
+                    result.append("  + ").append(key).append(": ").append(normaliseValue(value2)).append("\n");
                 }
             } else if (mapOfFile1.containsKey(key)) {
-                result.append(String.format("  - %s: %s%n", key, normaliseValue(mapOfFile1.get(key))));
+                result.append("  - ").append(key).append(": ").append(normaliseValue(mapOfFile1.get(key))).append("\n");
             } else {
-                result.append(String.format("  + %s: %s%n", key, normaliseValue(mapOfFile2.get(key))));
+                result.append("  + ").append(key).append(": ").append(normaliseValue(mapOfFile2.get(key))).append("\n");
             }
         }
         result.append("}");

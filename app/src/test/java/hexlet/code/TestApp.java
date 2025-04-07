@@ -2,7 +2,6 @@ package hexlet.code;
 
 import org.junit.jupiter.api.Test;
 
-import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.Map;
 
@@ -29,13 +28,12 @@ class TestApp {
     private final Map<String, Object> expectedEmptyMap = Map.of();
 
     @Test
-    void testDifferJson() throws URISyntaxException {
+    void testDifferJson() throws Exception {
         String filePath1 = Paths.get(getClass().getClassLoader().getResource("file1.json").toURI()).toString();
         String filePath2 = Paths.get(getClass().getClassLoader().getResource("file2.json").toURI()).toString();
         try {
-            String extended = extendedDiff;
             String actual = getDiff(filePath1, filePath2);
-            assertEquals(extended, actual);
+            assertEquals(extendedDiff, actual);
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }

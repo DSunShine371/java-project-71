@@ -6,6 +6,7 @@ plugins {
     id("com.github.ben-manes.versions") version "0.52.0"
     id("se.patrikerdes.use-latest-versions") version "0.2.18"
     id("io.freefair.lombok") version "8.13"
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "hexlet.code"
@@ -21,6 +22,7 @@ repositories {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -44,5 +46,14 @@ tasks {
 
     jacocoTestReport {
         dependsOn(test)
+        reports { xml.required.set(true) }
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "DSunShine371_java-project-71")
+        property("sonar.organization", "dsunshine371pis")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
