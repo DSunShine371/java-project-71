@@ -26,11 +26,14 @@ class TestApp {
             "follow", false
     );
     private final Map<String, Object> expectedEmptyMap = Map.of();
+    private static String getPathFor(String fileName) {
+        return Paths.get("src","test","resources", fileName).toString();
+    }
 
     @Test
     void testDifferJson() throws Exception {
-        String filePath1 = Paths.get(getClass().getClassLoader().getResource("file1.json").toURI()).toString();
-        String filePath2 = Paths.get(getClass().getClassLoader().getResource("file2.json").toURI()).toString();
+        String filePath1 = getPathFor("file1.json");
+        String filePath2 = getPathFor("file2.json");
         try {
             String actual = getDiff(filePath1, filePath2);
             assertEquals(extendedDiff, actual);
@@ -41,14 +44,14 @@ class TestApp {
 
     @Test
     void testReadJsonFile1() throws Exception {
-        String filePath = Paths.get(getClass().getClassLoader().getResource("file1.json").toURI()).toString();
+        String filePath = getPathFor("file1.json");
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(expectedMap, actualMap);
     }
 
     @Test
     void testReadEmptyJsonFile() throws Exception {
-        String filePath = Paths.get(getClass().getClassLoader().getResource("emptyFile.json").toURI()).toString();
+        String filePath =getPathFor("emptyFile.json");
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(expectedEmptyMap, actualMap);
     }
