@@ -1,5 +1,6 @@
 ifeq ($(OS),Windows_NT)
 build:
+.PHONY: build
 	gradlew build
 
 report:
@@ -8,6 +9,7 @@ report:
 run-dist:
 	build\install\app\bin\app file1.json file2.json
 else
+.PHONY: build
 build:
 	./gradlew build
 
