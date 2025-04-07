@@ -18,12 +18,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           fetch-depth: 0
-      - name: Make gradlew executable
-        run: chmod +x ./app/gradlew
       - name: Execute Gradle build
-        run: make build
+        run: app/make build
       - name: Generate coverage report
-        run: make report
+        run: app/make report
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
