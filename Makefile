@@ -15,3 +15,6 @@ report:
 
 lint:
 	make -C app lint
+
+sonar:
+	make -C sonar

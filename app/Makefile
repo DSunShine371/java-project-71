@@ -12,6 +12,8 @@ report:
 	./gradlew jacocoTestReport
 lint:
 	./gradlew checkstyleMain checkstyleTest
+sonar:
+	./gradlew sonar
 build-run: build run
 
 .PHONY: build
