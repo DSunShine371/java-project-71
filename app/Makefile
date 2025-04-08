@@ -13,7 +13,8 @@ report:
 lint:
 	./gradlew checkstyleMain checkstyleTest
 sonar:
-	./gradlew sonar
+	./gradlew build sonar --info
+
 build-run: build run
 
 .PHONY: build

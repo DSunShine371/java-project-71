@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 7.1 fix test">
+    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 7.1 fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/app/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +78,7 @@
   "keyToString": {
     "Gradle.app [sonar].executor": "Run",
     "Makefile Target.build.executor": "Run",
+    "Makefile Target.sonar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
@@ -117,9 +120,16 @@
       </makefile>
       <method v="2" />
     </configuration>
+    <configuration name="sonar" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/app/Makefile" target="sonar" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.app [sonar]" />
+        <item itemvalue="Makefile Target.sonar" />
         <item itemvalue="Makefile Target.build" />
       </list>
     </recent_temporary>
@@ -157,12 +167,69 @@
       <option name="project" value="LOCAL" />
       <updated>1744096845556</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Step 7.1 fix test">
+      <option name="closed" value="true" />
+      <created>1744097390258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744097390258</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Step 7.1 fix">
+      <option name="closed" value="true" />
+      <created>1744097487761</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744097487761</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Step 7.1 fix">
+      <option name="closed" value="true" />
+      <created>1744097699066</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744097699066</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Step 7.1 fix">
+      <option name="closed" value="true" />
+      <created>1744097774683</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744097774683</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Step 7.1 fix">
+      <option name="closed" value="true" />
+      <created>1744097849109</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1744097849109</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Step 7.1 fix">
+      <option name="closed" value="true" />
+      <created>1744097941165</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744097941165</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Step 7.1 fix">
+      <option name="closed" value="true" />
+      <created>1744098019791</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1744098019791</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Step 7.1" />
     <MESSAGE value="Step 7.1 fix test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Step 7.1 fix test" />
+    <MESSAGE value="Step 7.1 fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step 7.1 fix" />
   </component>
 </project>
