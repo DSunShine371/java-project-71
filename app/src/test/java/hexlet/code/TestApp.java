@@ -1,6 +1,8 @@
 package hexlet.code;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.file.Paths;
 import java.util.Map;
@@ -10,7 +12,8 @@ import static hexlet.code.JsonReader.readFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestApp {
-    private final String extendedDiff = """
+    private static final Logger log = LoggerFactory.getLogger(TestApp.class);
+    private static final String EXTENDED_DIFF = """
             {
               - follow: false
                 host: hexlet.io
@@ -19,26 +22,26 @@ class TestApp {
               + timeout: 20
               + verbose: true
             }""";
-    private final Map<String, Object> expectedMap = Map.of(
+    private static final Map<String, Object> EXTENDED_MAP = Map.of(
             "host", "hexlet.io",
             "timeout", 50,
             "proxy", "123.234.53.22",
             "follow", false
     );
-    private final Map<String, Object> expectedEmptyMap = Map.of();
+    private static final Map<String, Object> EXTENDED_EMPTY_MAP = Map.of();
     private static String getPathFor(String fileName) {
         return Paths.get("src", "test", "resources", fileName).toString();
     }
 
     @Test
-    void testDifferJson() throws Exception {
+    void testDifferJson() {
         String filePath1 = getPathFor("file1.json");
         String filePath2 = getPathFor("file2.json");
         try {
             String actual = getDiff(filePath1, filePath2);
-            assertEquals(extendedDiff, actual);
+            assertEquals(EXTENDED_DIFF, actual);
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            log.error("Error: {}", e.getMessage());
         }
     }
 
@@ -46,13 +49,13 @@ class TestApp {
     void testReadJsonFile1() throws Exception {
         String filePath = getPathFor("file1.json");
         Map<String, Object> actualMap = readFile(filePath);
-        assertEquals(expectedMap, actualMap);
+        assertEquals(EXTENDED_MAP, actualMap);
     }
 
     @Test
     void testReadEmptyJsonFile() throws Exception {
         String filePath = getPathFor("emptyFile.json");
         Map<String, Object> actualMap = readFile(filePath);
-        assertEquals(expectedEmptyMap, actualMap);
+        assertEquals(EXTENDED_EMPTY_MAP, actualMap);
     }
 }

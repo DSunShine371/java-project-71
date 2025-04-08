@@ -30,12 +30,14 @@ dependencies {
     implementation("org.apache.commons:commons-collections4:4.4")
     implementation("info.picocli:picocli:4.7.6")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
+    implementation("org.slf4j:slf4j-api:2.0.17")
 
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation(platform("org.junit:junit-bom:5.11.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testImplementation("org.junit.platform:junit-platform-launcher:1.11.0")
+    testImplementation("org.slf4j:slf4j-api:2.0.17")
 }
 
 tasks {
