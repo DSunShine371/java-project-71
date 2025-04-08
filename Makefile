@@ -17,4 +17,4 @@ lint:
 	make -C app lint
 
 sonar:
-	make -C sonar
+	make -C app sonar
