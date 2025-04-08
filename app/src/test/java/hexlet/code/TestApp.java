@@ -27,7 +27,7 @@ class TestApp {
     );
     private final Map<String, Object> expectedEmptyMap = Map.of();
     private static String getPathFor(String fileName) {
-        return Paths.get("src","test","resources", fileName).toString();
+        return Paths.get("src", "test", "resources", fileName).toString();
     }
 
     @Test
@@ -51,7 +51,7 @@ class TestApp {
 
     @Test
     void testReadEmptyJsonFile() throws Exception {
-        String filePath =getPathFor("emptyFile.json");
+        String filePath = getPathFor("emptyFile.json");
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(expectedEmptyMap, actualMap);
     }
