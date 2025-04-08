@@ -1,36 +1,17 @@
-ifeq ($(OS),Windows_NT)
-build:
-.PHONY: build
-	gradlew build
-
-report:
-	gradlew test jacocoTestReport
-
 run-dist:
-	build\install\app\bin\app file1.json file2.json
-
-else
-setup:
-	./gradlew wrapper --gradle-version 8.5
-
-install:
-	./gradlew install
-
+	./build/install/app/bin/app
+start:
+	./gradlew run
 build:
 	./gradlew build
-
-run:
-	./gradlew run
-
+clean:
+	./gradlew clean
+test:
+	./gradlew test
 report:
 	./gradlew jacocoTestReport
-
 lint:
-	./gradlew checkstyleMain
-
-run-dist:
-	./build/install/app/bin/app file1.json file2.json
-
-endif
+	./gradlew checkstyleMain checkstyleTest
+build-run: build run
 
 .PHONY: build
