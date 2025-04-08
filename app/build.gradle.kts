@@ -55,5 +55,6 @@ sonar {
         property("sonar.projectKey", "DSunShine371_java-project-71")
         property("sonar.organization", "dsunshine371pis")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.login", "${{secrets.SONAR_TOKEN}}")
     }
 }
