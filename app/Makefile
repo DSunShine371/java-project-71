@@ -8,14 +8,29 @@ report:
 
 run-dist:
 	build\install\app\bin\app file1.json file2.json
+
 else
-.PHONY: build
+setup:
+	./gradlew wrapper --gradle-version 8.5
+
+install:
+	./gradlew install
+
 build:
 	./gradlew build
 
+run:
+	./gradlew run
+
 report:
-	./gradlew test jacocoTestReport
+	./gradlew jacocoTestReport
+
+lint:
+	./gradlew checkstyleMain
 
 run-dist:
 	./build/install/app/bin/app file1.json file2.json
+
 endif
+
+.PHONY: build
