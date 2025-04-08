@@ -19,7 +19,7 @@ import static hexlet.code.Differ.getDiff;
         customSynopsis = "app [-hV] [-f=format] filepath1 filepath2"
 )
 public class App implements Callable<Integer> {
-    private static final Logger log = LoggerFactory.getLogger(App.class);
+    private static final Logger LOG = LoggerFactory.getLogger(App.class);
     @Option(
             names = {"-f", "--format"},
             description = "output format [default: stylish]",
@@ -42,10 +42,10 @@ public class App implements Callable<Integer> {
     public Integer call() {
         try {
             String resultByDiffer = getDiff(filepath1, filepath2);
-            log.info(resultByDiffer);
+            LOG.info(resultByDiffer);
             return 0;
         } catch (Exception e) {
-            log.error("Error: {}", e.getMessage());
+            LOG.error("Error: {}", e.getMessage());
             return 1;
         }
     }

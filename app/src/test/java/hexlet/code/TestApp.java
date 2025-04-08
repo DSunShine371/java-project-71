@@ -12,7 +12,7 @@ import static hexlet.code.JsonReader.readFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestApp {
-    private static final Logger log = LoggerFactory.getLogger(TestApp.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TestApp.class);
     private static final String EXTENDED_DIFF = """
             {
               - follow: false
@@ -41,7 +41,7 @@ class TestApp {
             String actual = getDiff(filePath1, filePath2);
             assertEquals(EXTENDED_DIFF, actual);
         } catch (Exception e) {
-            log.error("Error: {}", e.getMessage());
+            LOG.error("Error: {}", e.getMessage());
         }
     }
 
