@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 8 fix build.gradle.kts">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 8.2 fix build.gradle.kts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
     </list>
@@ -357,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744219746272</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Step 8.2 fix build.gradle.kts">
+      <option name="closed" value="true" />
+      <created>1744221833498</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1744221833498</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -371,6 +378,7 @@
     <MESSAGE value="Step 8 fix junit platform" />
     <MESSAGE value="Step 8 fix .gitingnore" />
     <MESSAGE value="Step 8 fix build.gradle.kts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Step 8 fix build.gradle.kts" />
+    <MESSAGE value="Step 8.2 fix build.gradle.kts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step 8.2 fix build.gradle.kts" />
   </component>
 </project>
