@@ -31,7 +31,7 @@ val picocliVersion = "4.7.6"
 val jacksonDatabindVersion = "2.18.3"
 val jacksonDataformatYamlVersion = "2.18.3"
 val slf4jApiVersion = "2.0.17"
-val logbackClassicVersion = "1.5.18"
+val slf4jJdk14Version = "2.0.17"
 val junitBomVersion = "5.12.1"
 val junitPlatformLauncherVersion = "1.12.1"
 
@@ -42,7 +42,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonDataformatYamlVersion")
     implementation("org.slf4j:slf4j-api:$slf4jApiVersion")
-    implementation("ch.qos.logback:logback-classic:$logbackClassicVersion")
+    implementation("org.slf4j:slf4j-jdk14:$slf4jJdk14Version")
 
     testImplementation(platform("org.junit:junit-bom:$junitBomVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -51,7 +51,7 @@ dependencies {
     testImplementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
     testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonDataformatYamlVersion")
     testImplementation("org.slf4j:slf4j-api:$slf4jApiVersion")
-    testImplementation("ch.qos.logback:logback-classic:$logbackClassicVersion")
+    testImplementation("org.slf4j:slf4j-jdk14:$slf4jJdk14Version")
 }
 
 tasks {
