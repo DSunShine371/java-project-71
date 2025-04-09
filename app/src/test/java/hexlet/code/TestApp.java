@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 import static hexlet.code.Differ.getDiff;
-import static hexlet.code.JsonReader.readFile;
+import static hexlet.code.Parser.readFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestApp {
@@ -41,7 +41,19 @@ class TestApp {
             String actual = getDiff(filePath1, filePath2);
             assertEquals(EXTENDED_DIFF, actual);
         } catch (Exception e) {
-            LOG.error("Error: {}", e.getMessage());
+            LOG.error("Error Json file: {}", e.getMessage());
+        }
+    }
+
+    @Test
+    void testDifferYAML() {
+        String filePath1 = getPathFor("file1.yml");
+        String filePath2 = getPathFor("file2.yml");
+        try {
+            String actual = getDiff(filePath1, filePath2);
+            assertEquals(EXTENDED_DIFF, actual);
+        } catch (Exception e) {
+            LOG.error("Error YAML file: {}", e.getMessage());
         }
     }
 
@@ -55,6 +67,20 @@ class TestApp {
     @Test
     void testReadEmptyJsonFile() throws Exception {
         String filePath = getPathFor("emptyFile.json");
+        Map<String, Object> actualMap = readFile(filePath);
+        assertEquals(EXTENDED_EMPTY_MAP, actualMap);
+    }
+
+    @Test
+    void testReadYAMLFile1() throws Exception {
+        String filePath = getPathFor("file1.yml");
+        Map<String, Object> actualMap = readFile(filePath);
+        assertEquals(EXTENDED_MAP, actualMap);
+    }
+
+    @Test
+    void testReadEmptyYAMLFile() throws Exception {
+        String filePath = getPathFor("emptyFile.yml");
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(EXTENDED_EMPTY_MAP, actualMap);
     }

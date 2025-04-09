@@ -29,15 +29,20 @@ dependencies {
     implementation("org.apache.commons:commons-lang3:3.17.0")
     implementation("org.apache.commons:commons-collections4:4.4")
     implementation("info.picocli:picocli:4.7.6")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3")
     implementation("org.slf4j:slf4j-api:2.0.17")
+    implementation("ch.qos.logback:logback-classic:1.5.18")
 
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation(platform("org.junit:junit-bom:5.11.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testImplementation("org.junit.platform:junit-platform-launcher:1.11.0")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
+    testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3")
     testImplementation("org.slf4j:slf4j-api:2.0.17")
+    testImplementation("ch.qos.logback:logback-classic:1.5.18")
 }
 
 tasks {

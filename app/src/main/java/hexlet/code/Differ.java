@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-import static hexlet.code.JsonReader.readFile;
+import static hexlet.code.Parser.readFile;
 
 public final class Differ {
     private Differ() {

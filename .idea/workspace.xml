@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 7.1 fix">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 7.2 log fix">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/app.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/file1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/file2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/emptyFile.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/file1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/file2.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Differ.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Differ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/JsonReader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/java/hexlet/code/TestApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/hexlet/code/TestApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +73,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2vR55GIL9mrVtm1qEZ01ID5AfeB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,6 +83,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.app [sonar].executor": "Run",
+    "Gradle.app [test].executor": "Run",
     "Makefile Target.build.executor": "Run",
     "Makefile Target.sonar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -86,7 +99,12 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.app [sonar]">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\GitHub\java-project-71\app\src\test\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.app [test]">
     <configuration name="app [sonar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -99,6 +117,28 @@
         <option name="taskNames">
           <list>
             <option value="sonar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="app [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -123,6 +163,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.app [test]" />
         <item itemvalue="Gradle.app [sonar]" />
         <item itemvalue="Makefile Target.sonar" />
         <item itemvalue="Makefile Target.build" />
@@ -234,13 +275,31 @@
       <option name="project" value="LOCAL" />
       <updated>1744098327941</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Step 7.2 update and fix">
+      <option name="closed" value="true" />
+      <created>1744112843770</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744112843770</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Step 7.2 log fix">
+      <option name="closed" value="true" />
+      <created>1744112985938</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744112985938</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Step 7.1" />
     <MESSAGE value="Step 7.1 fix test" />
     <MESSAGE value="Step 7.1 fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Step 7.1 fix" />
+    <MESSAGE value="Step 7.2 update and fix" />
+    <MESSAGE value="Step 7.2 log fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step 7.2 log fix" />
   </component>
 </project>
