@@ -33,6 +33,7 @@ val jacksonDataformatYamlVersion = "2.18.3"
 val slf4jApiVersion = "2.0.17"
 val logbackClassicVersion = "1.5.18"
 val junitBomVersion = "5.12.1"
+val junitPlatformLauncherVersion = "1.12.1"
 
 dependencies {
     implementation("org.apache.commons:commons-lang3:$lang3Version")
@@ -46,6 +47,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:$junitBomVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.junit.platform:junit-platform-launcher:$junitPlatformLauncherVersion")
     testImplementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
     testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonDataformatYamlVersion")
     testImplementation("org.slf4j:slf4j-api:$slf4jApiVersion")
