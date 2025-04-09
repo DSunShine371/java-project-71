@@ -25,24 +25,31 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
-dependencies {
-    implementation("org.apache.commons:commons-lang3:3.17.0")
-    implementation("org.apache.commons:commons-collections4:4.4")
-    implementation("info.picocli:picocli:4.7.6")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3")
-    implementation("org.slf4j:slf4j-api:2.0.17")
-    implementation("ch.qos.logback:logback-classic:1.5.18")
+val lang3Version = "3.17.0"
+val collections4Version = "4.4"
+val picocliVersion = "4.7.6"
+val jacksonDatabindVersion = "2.18.3"
+val jacksonDataformatYamlVersion = "2.18.3"
+val slf4jApiVersion = "2.0.17"
+val logbackClassicVersion = "1.5.18"
+val junitBomVersion = "5.12.1"
 
-    testImplementation("org.assertj:assertj-core:3.27.3")
-    testImplementation(platform("org.junit:junit-bom:5.11.1"))
+dependencies {
+    implementation("org.apache.commons:commons-lang3:$lang3Version")
+    implementation("org.apache.commons:commons-collections4:$collections4Version")
+    implementation("info.picocli:picocli:$picocliVersion")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonDataformatYamlVersion")
+    implementation("org.slf4j:slf4j-api:$slf4jApiVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackClassicVersion")
+
+    testImplementation(platform("org.junit:junit-bom:$junitBomVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
-    testImplementation("org.junit.platform:junit-platform-launcher:1.11.0")
-    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
-    testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3")
-    testImplementation("org.slf4j:slf4j-api:2.0.17")
-    testImplementation("ch.qos.logback:logback-classic:1.5.18")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
+    testImplementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonDataformatYamlVersion")
+    testImplementation("org.slf4j:slf4j-api:$slf4jApiVersion")
+    testImplementation("ch.qos.logback:logback-classic:$logbackClassicVersion")
 }
 
 tasks {

@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 7.2 log fix">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/file1.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/file2.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/resources/emptyFile.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/resources/file1.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/resources/file2.yml" afterDir="false" />
+    <list default="true" id="d9d11c5d-525f-4a51-9a04-69ab80ddd39f" name="Changes" comment="Step 8 Parse and diff YAML files, fix logger">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Differ.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Differ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/JsonReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/hexlet/code/TestApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/hexlet/code/TestApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744112985938</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Step 8 Parse and diff YAML files, fix logger">
+      <option name="closed" value="true" />
+      <created>1744208355796</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1744208355796</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -300,6 +297,7 @@
     <MESSAGE value="Step 7.1 fix" />
     <MESSAGE value="Step 7.2 update and fix" />
     <MESSAGE value="Step 7.2 log fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Step 7.2 log fix" />
+    <MESSAGE value="Step 8 Parse and diff YAML files, fix logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step 8 Parse and diff YAML files, fix logger" />
   </component>
 </project>
