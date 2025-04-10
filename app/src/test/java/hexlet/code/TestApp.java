@@ -10,13 +10,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static hexlet.code.Differ.getDiff;
+import static hexlet.code.Differ.generate;
 import static hexlet.code.Parser.readFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestApp {
     private static final Logger LOG = LoggerFactory.getLogger(TestApp.class);
-    private static final String EXTENDED_DIFF = """
+    private static final String EXTENDED_STYLISH_DIFF = """
         {
             chars1: [a, b, c]
           - chars2: [d, e, f]
@@ -42,6 +42,22 @@ class TestApp {
           - setting3: true
           + setting3: none
         }""";
+    private static final String EXTENDED_PLAIN_DIFF = """
+
+            Property 'chars2' was updated. From [complex value] to false
+            Property 'checked' was updated. From false to true
+            Property 'default' was updated. From null to [complex value]
+            Property 'id' was updated. From 45 to null
+            Property 'key1' was removed
+            Property 'key2' was added with value: 'value2'
+            Property 'numbers2' was updated. From [complex value] to [complex value]
+            Property 'numbers3' was removed
+            Property 'numbers4' was added with value: [complex value]
+            Property 'obj1' was added with value: [complex value]
+            Property 'setting1' was updated. From 'Some value' to 'Another value'
+            Property 'setting2' was updated. From 200 to 300
+            Property 'setting3' was updated. From true to 'none'
+            """;
     private static final Map<String, Object> EXTENDED_MAP = new LinkedHashMap<>();
     private static final Map<String, Object> EXTENDED_EMPTY_MAP = Map.of();
     private static String getPathFor(String fileName) {
@@ -62,30 +78,6 @@ class TestApp {
         EXTENDED_MAP.put("numbers3", List.of(3, 4, 5));
         EXTENDED_MAP.put("chars1", List.of("a", "b", "c"));
         EXTENDED_MAP.put("chars2", List.of("d", "e", "f"));
-    }
-
-    @Test
-    void testDifferJson() {
-        String filePath1 = getPathFor("file1.json");
-        String filePath2 = getPathFor("file2.json");
-        try {
-            String actual = getDiff(filePath1, filePath2, "stylish");
-            assertEquals(EXTENDED_DIFF, actual);
-        } catch (Exception e) {
-            LOG.error("Error Json file: {}", e.getMessage());
-        }
-    }
-
-    @Test
-    void testDifferYAML() {
-        String filePath1 = getPathFor("file1.yml");
-        String filePath2 = getPathFor("file2.yml");
-        try {
-            String actual = getDiff(filePath1, filePath2, "stylish");
-            assertEquals(EXTENDED_DIFF, actual);
-        } catch (Exception e) {
-            LOG.error("Error YAML file: {}", e.getMessage());
-        }
     }
 
     @Test
@@ -114,5 +106,53 @@ class TestApp {
         String filePath = getPathFor("emptyFile.yml");
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(EXTENDED_EMPTY_MAP, actualMap);
+    }
+
+    @Test
+    void testDifferJson() {
+        String filePath1 = getPathFor("file1.json");
+        String filePath2 = getPathFor("file2.json");
+        try {
+            String actual = generate(filePath1, filePath2, "stylish");
+            assertEquals(EXTENDED_STYLISH_DIFF, actual);
+        } catch (Exception e) {
+            LOG.error("Error Json file: {}", e.getMessage());
+        }
+    }
+
+    @Test
+    void testDifferYAML() {
+        String filePath1 = getPathFor("file1.yml");
+        String filePath2 = getPathFor("file2.yml");
+        try {
+            String actual = generate(filePath1, filePath2, "stylish");
+            assertEquals(EXTENDED_STYLISH_DIFF, actual);
+        } catch (Exception e) {
+            LOG.error("Error YAML file: {}", e.getMessage());
+        }
+    }
+
+    @Test
+    void testPlainDifferJson() {
+        String filePath1 = getPathFor("file1.json");
+        String filePath2 = getPathFor("file2.json");
+        try {
+            String actual = generate(filePath1, filePath2, "plain");
+            assertEquals(EXTENDED_PLAIN_DIFF, actual);
+        } catch (Exception e) {
+            LOG.error("Error Json to Plain file: {}", e.getMessage());
+        }
+    }
+
+    @Test
+    void testPlainDifferYAML() {
+        String filePath1 = getPathFor("file1.yml");
+        String filePath2 = getPathFor("file2.yml");
+        try {
+            String actual = generate(filePath1, filePath2, "plain");
+            assertEquals(EXTENDED_PLAIN_DIFF, actual);
+        } catch (Exception e) {
+            LOG.error("Error YAML to Plain file: {}", e.getMessage());
+        }
     }
 }

@@ -9,7 +9,7 @@ import picocli.CommandLine.Parameters;
 
 import java.util.concurrent.Callable;
 
-import static hexlet.code.Differ.getDiff;
+import static hexlet.code.Differ.generate;
 
 @Command(
         name = "app",
@@ -41,7 +41,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() {
         try {
-            String resultByDiffer = getDiff(filepath1, filepath2, format);
+            String resultByDiffer = generate(filepath1, filepath2, format);
             LOG.info(resultByDiffer);
             return 0;
         } catch (Exception e) {
