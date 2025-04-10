@@ -13,14 +13,14 @@ public final class Differ {
         throw new IllegalStateException("Utility class");
     }
 
-    public static String getDiff(String filePath1, String filePath2) throws IOException {
+    public static String getDiff(String filePath1, String filePath2, String format) throws IOException {
         Map<String, Object> mapOfFile1 = readFile(filePath1);
         Map<String, Object> mapOfFile2 = readFile(filePath2);
 
-        return generateDiff(mapOfFile1, mapOfFile2);
+        return generateStylishDiff(mapOfFile1, mapOfFile2);
     }
 
-    private static String generateDiff(Map<String, Object> mapOfFile1, Map<String, Object> mapOfFile2) {
+    private static String generateStylishDiff(Map<String, Object> mapOfFile1, Map<String, Object> mapOfFile2) {
         Set<String> keys = new TreeSet<>();
         keys.addAll(mapOfFile1.keySet());
         keys.addAll(mapOfFile2.keySet());

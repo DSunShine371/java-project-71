@@ -41,7 +41,7 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() {
         try {
-            String resultByDiffer = getDiff(filepath1, filepath2);
+            String resultByDiffer = getDiff(filepath1, filepath2, format);
             LOG.info(resultByDiffer);
             return 0;
         } catch (Exception e) {
