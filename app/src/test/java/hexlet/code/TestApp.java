@@ -42,7 +42,7 @@ class TestApp {
           - setting3: true
           + setting3: none
         }""";
-    private static final Map<String, Object> extendedMap = new LinkedHashMap<>();
+    private static final Map<String, Object> EXTENDED_MAP = new LinkedHashMap<>();
     private static final Map<String, Object> EXTENDED_EMPTY_MAP = Map.of();
     private static String getPathFor(String fileName) {
         return Paths.get("src", "test", "resources", fileName).toString();
@@ -50,18 +50,18 @@ class TestApp {
 
     @BeforeAll
     static void generateMap() {
-        extendedMap.put("setting1", "Some value");
-        extendedMap.put("setting2", 200);
-        extendedMap.put("setting3", true);
-        extendedMap.put("key1", "value1");
-        extendedMap.put("numbers1", List.of(1, 2, 3, 4));
-        extendedMap.put("numbers2", List.of(2, 3, 4, 5));
-        extendedMap.put("id", 45);
-        extendedMap.put("default", null);
-        extendedMap.put("checked", false);
-        extendedMap.put("numbers3", List.of(3, 4, 5));
-        extendedMap.put("chars1", List.of("a", "b", "c"));
-        extendedMap.put("chars2", List.of("d", "e", "f"));
+        EXTENDED_MAP.put("setting1", "Some value");
+        EXTENDED_MAP.put("setting2", 200);
+        EXTENDED_MAP.put("setting3", true);
+        EXTENDED_MAP.put("key1", "value1");
+        EXTENDED_MAP.put("numbers1", List.of(1, 2, 3, 4));
+        EXTENDED_MAP.put("numbers2", List.of(2, 3, 4, 5));
+        EXTENDED_MAP.put("id", 45);
+        EXTENDED_MAP.put("default", null);
+        EXTENDED_MAP.put("checked", false);
+        EXTENDED_MAP.put("numbers3", List.of(3, 4, 5));
+        EXTENDED_MAP.put("chars1", List.of("a", "b", "c"));
+        EXTENDED_MAP.put("chars2", List.of("d", "e", "f"));
     }
 
     @Test
@@ -92,7 +92,7 @@ class TestApp {
     void testReadJsonFile1() throws Exception {
         String filePath = getPathFor("file1.json");
         Map<String, Object> actualMap = readFile(filePath);
-        assertEquals(extendedMap, actualMap);
+        assertEquals(EXTENDED_MAP, actualMap);
     }
 
     @Test
@@ -106,7 +106,7 @@ class TestApp {
     void testReadYAMLFile1() throws Exception {
         String filePath = getPathFor("file1.yml");
         Map<String, Object> actualMap = readFile(filePath);
-        assertEquals(extendedMap, actualMap);
+        assertEquals(EXTENDED_MAP, actualMap);
     }
 
     @Test
