@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -153,6 +155,32 @@ class TestApp {
             assertEquals(EXTENDED_PLAIN_DIFF, actual);
         } catch (Exception e) {
             LOG.error("Error YAML to Plain file: {}", e.getMessage());
+        }
+    }
+
+    @Test
+    void testJsonDifferJson() {
+        String filePath1 = getPathFor("file1.json");
+        String filePath2 = getPathFor("file2.json");
+        try {
+            String actual = generate(filePath1, filePath2, "json");
+            String extended = Files.readString(Path.of(getPathFor("extendedJsonResult.json")));
+            assertEquals(extended, actual);
+        } catch (Exception e) {
+            LOG.error("Error Json to Json file: {}", e.getMessage());
+        }
+    }
+
+    @Test
+    void testJsonDifferYAML() {
+        String filePath1 = getPathFor("file1.yml");
+        String filePath2 = getPathFor("file2.yml");
+        try {
+            String actual = generate(filePath1, filePath2, "json");
+            String extended = Files.readString(Path.of(getPathFor("extendedJsonResult.json")));
+            assertEquals(extended, actual);
+        } catch (Exception e) {
+            LOG.error("Error YAML to Json file: {}", e.getMessage());
         }
     }
 }
