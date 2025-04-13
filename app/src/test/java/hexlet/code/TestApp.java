@@ -199,4 +199,13 @@ class TestApp {
         int exitCode = cmd.execute(args);
         assertEquals(0, exitCode);
     }
+
+    @Test
+    void testAppException() {
+        String[] args = {"--format=plain", getPathFor("file1.json"), getPathFor("unsupportedFile.txt")};
+        App app = new App();
+        CommandLine cmd = new CommandLine(app);
+        int exitCode = cmd.execute(args);
+        assertEquals(1, exitCode);
+    }
 }
