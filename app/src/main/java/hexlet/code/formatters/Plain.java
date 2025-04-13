@@ -17,7 +17,7 @@ public final class Plain {
         keys.addAll(mapOfFile2.keySet());
         String prefix = "Property '";
 
-        StringBuilder result = new StringBuilder("\n");
+        StringBuilder result = new StringBuilder();
 
         for (String key : keys) {
             if (mapOfFile1.containsKey(key) && mapOfFile2.containsKey(key)) {
@@ -45,6 +45,9 @@ public final class Plain {
                         .append(normaliseValue(mapOfFile2.get(key)))
                         .append("\n");
             }
+        }
+        if (result.charAt(result.length() - 1) == '\n') {
+            result.deleteCharAt(result.length() - 1);
         }
 
         return result.toString();
