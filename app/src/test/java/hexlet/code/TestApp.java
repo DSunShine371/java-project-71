@@ -18,6 +18,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TestApp {
+    private static final String SOME_VALUE = "Some value";
+    private static final int VALUE_200 = 200;
+    private static final boolean TRUE_VALUE = true;
+    private static final boolean FALSE_VALUE = false;
+    private static final int VALUE_45 = 45;
+    private static final List<Integer> NUMBERS1 = List.of(1, 2, 3, 4);
+    private static final List<Integer> NUMBERS2 = List.of(2, 3, 4, 5);
+    private static final List<Integer> NUMBERS3 = List.of(3, 4, 5);
+    private static final List<String> CHARS1 = List.of("a", "b", "c");
+    private static final List<String> CHARS2 = List.of("d", "e", "f");
+
     private static final Logger LOG = LoggerFactory.getLogger(TestApp.class);
     private static final Map<String, Object> EXTENDED_MAP = new LinkedHashMap<>();
     private static final Map<String, Object> EXTENDED_EMPTY_MAP = Map.of();
@@ -27,18 +38,18 @@ class TestApp {
 
     @BeforeAll
     static void generateMap() {
-        EXTENDED_MAP.put("setting1", "Some value");
-        EXTENDED_MAP.put("setting2", 200);
-        EXTENDED_MAP.put("setting3", true);
+        EXTENDED_MAP.put("setting1", SOME_VALUE);
+        EXTENDED_MAP.put("setting2", VALUE_200);
+        EXTENDED_MAP.put("setting3", TRUE_VALUE);
         EXTENDED_MAP.put("key1", "value1");
-        EXTENDED_MAP.put("numbers1", List.of(1, 2, 3, 4));
-        EXTENDED_MAP.put("numbers2", List.of(2, 3, 4, 5));
-        EXTENDED_MAP.put("id", 45);
+        EXTENDED_MAP.put("numbers1", NUMBERS1);
+        EXTENDED_MAP.put("numbers2", NUMBERS2);
+        EXTENDED_MAP.put("id", VALUE_45);
         EXTENDED_MAP.put("default", null);
-        EXTENDED_MAP.put("checked", false);
-        EXTENDED_MAP.put("numbers3", List.of(3, 4, 5));
-        EXTENDED_MAP.put("chars1", List.of("a", "b", "c"));
-        EXTENDED_MAP.put("chars2", List.of("d", "e", "f"));
+        EXTENDED_MAP.put("checked", FALSE_VALUE);
+        EXTENDED_MAP.put("numbers3", NUMBERS3);
+        EXTENDED_MAP.put("chars1", CHARS1);
+        EXTENDED_MAP.put("chars2", CHARS2);
     }
 
     @Test

@@ -16,7 +16,7 @@ import static hexlet.code.Differ.generate;
         description = "Compares two configuration files and shows a difference.",
         customSynopsis = "app [-hV] [-f=format] filepath1 filepath2"
 )
-public class App implements Callable<Integer> {
+public final class App implements Callable<Integer> {
     @Option(
             names = {"-f", "--format"},
             description = "output format [default: stylish]",
