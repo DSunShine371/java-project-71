@@ -15,6 +15,7 @@ import java.util.Map;
 import static hexlet.code.Differ.generate;
 import static hexlet.code.Parser.readFile;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TestApp {
     private static final Logger LOG = LoggerFactory.getLogger(TestApp.class);
@@ -111,6 +112,12 @@ class TestApp {
     }
 
     @Test
+    void testReadUnsupportedFile() {
+        String filePath = getPathFor("unsupportedFile.txt");
+        assertThrows(IllegalArgumentException.class, () -> readFile(filePath));
+    }
+
+    @Test
     void testDifferJson() {
         String filePath1 = getPathFor("file1.json");
         String filePath2 = getPathFor("file2.json");
@@ -182,5 +189,12 @@ class TestApp {
         } catch (Exception e) {
             LOG.error("Error YAML to Json file: {}", e.getMessage());
         }
+    }
+
+    @Test
+    void testDifferUnsupportedOutputFormat() {
+        String filePath1 = getPathFor("file1.json");
+        String filePath2 = getPathFor("file2.json");
+        assertThrows(UnsupportedOperationException.class, () -> generate(filePath1, filePath2, "yaml"));
     }
 }
