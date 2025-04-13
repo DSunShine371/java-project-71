@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -19,7 +17,6 @@ import static hexlet.code.Differ.generate;
         customSynopsis = "app [-hV] [-f=format] filepath1 filepath2"
 )
 public class App implements Callable<Integer> {
-    private static final Logger LOG = LoggerFactory.getLogger(App.class);
     @Option(
             names = {"-f", "--format"},
             description = "output format [default: stylish]",
@@ -42,10 +39,10 @@ public class App implements Callable<Integer> {
     public Integer call() {
         try {
             String resultByDiffer = generate(filepath1, filepath2, format);
-            LOG.info(resultByDiffer);
+            System.out.println(resultByDiffer);
             return 0;
         } catch (Exception e) {
-            LOG.error("Error: {}", e.getMessage());
+            System.err.println(e.getMessage());
             return 1;
         }
     }
