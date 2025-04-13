@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import picocli.CommandLine;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -188,5 +189,14 @@ class TestApp {
         } catch (Exception e) {
             LOG.error("Error Empty format file: {}", e.getMessage());
         }
+    }
+
+    @Test
+    void testAppExecutionSuccess() {
+        String[] args = {"--format=plain", getPathFor("file1.json"), getPathFor("file2.json")};
+        App app = new App();
+        CommandLine cmd = new CommandLine(app);
+        int exitCode = cmd.execute(args);
+        assertEquals(0, exitCode);
     }
 }
