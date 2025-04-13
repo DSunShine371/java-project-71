@@ -13,6 +13,13 @@ public final class Differ {
         throw new IllegalStateException("Utility class");
     }
 
+    public static String generate(String filePath1, String filePath2) throws IOException {
+        Map<String, Object> mapOfFile1 = readFile(filePath1);
+        Map<String, Object> mapOfFile2 = readFile(filePath2);
+
+        return Stylish.generateDiff(mapOfFile1, mapOfFile2);
+    }
+
     public static String generate(String filePath1, String filePath2, String format) throws IOException {
         Map<String, Object> mapOfFile1 = readFile(filePath1);
         Map<String, Object> mapOfFile2 = readFile(filePath2);
