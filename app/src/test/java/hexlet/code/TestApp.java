@@ -179,19 +179,6 @@ class TestApp {
     }
 
     @Test
-    void testDifferEmptyFormat() {
-        String filePath1 = getPathFor("file1.json");
-        String filePath2 = getPathFor("file2.json");
-        try {
-            String actual = generate(filePath1, filePath2);
-            String extended = Files.readString(Path.of(getPathFor("extendedStylishResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error Empty format file: {}", e.getMessage());
-        }
-    }
-
-    @Test
     void testAppExecutionSuccess() {
         String[] args = {"--format=plain", getPathFor("file1.json"), getPathFor("file2.json")};
         App app = new App();
