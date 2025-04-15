@@ -11,7 +11,6 @@ public final class Plain {
 
     public static String generateDiff(Map<String, Object> mapOfFile1, Map<String, Object> mapOfFile2) {
         Set<String> keys = getAllKeys(mapOfFile1, mapOfFile2);
-
         StringBuilder result = new StringBuilder();
 
         for (String key : keys) {
@@ -30,9 +29,9 @@ public final class Plain {
         return result.toString();
     }
 
-    private static Set<String> getAllKeys(Map<String, Object> map1, Map<String, Object> map2) {
+    private static Set<String> getAllKeys(Map<String, Object> map, Map<String, Object> map2) {
         Set<String> keys = new TreeSet<>();
-        keys.addAll(map1.keySet());
+        keys.addAll(map.keySet());
         keys.addAll(map2.keySet());
         return keys;
     }
