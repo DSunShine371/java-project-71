@@ -2,10 +2,12 @@ package hexlet.code;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import picocli.CommandLine;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,7 +32,6 @@ class TestApp {
     private static final List<String> CHARS1 = List.of("a", "b", "c");
     private static final List<String> CHARS2 = List.of("d", "e", "f");
 
-    private static final Logger LOG = LoggerFactory.getLogger(TestApp.class);
     private static final Map<String, Object> EXTENDED_MAP = new LinkedHashMap<>();
     private static final Map<String, Object> EXTENDED_EMPTY_MAP = Map.of();
     private static String getPathFor(String fileName) {
@@ -53,122 +54,43 @@ class TestApp {
         EXTENDED_MAP.put("chars2", CHARS2);
     }
 
-    @Test
-    void testReadJsonFile1() throws Exception {
-        String filePath = getPathFor("file1.json");
+    @ParameterizedTest(name = "{index} - {0}")
+    @ValueSource(strings = {"file1.json", "file1.yml"})
+    void testReadFile(String fileName) throws IOException {
+        String filePath = getPathFor(fileName);
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(EXTENDED_MAP, actualMap);
     }
 
-    @Test
-    void testReadEmptyJsonFile() throws Exception {
-        String filePath = getPathFor("emptyFile.json");
+    @ParameterizedTest(name = "{index} - {0}")
+    @ValueSource(strings = {"emptyFile.json", "emptyFile.yml"})
+    void testReadEmptyFile(String fileName) throws IOException {
+        String filePath = getPathFor(fileName);
         Map<String, Object> actualMap = readFile(filePath);
         assertEquals(EXTENDED_EMPTY_MAP, actualMap);
     }
 
-    @Test
-    void testReadYAMLFile1() throws Exception {
-        String filePath = getPathFor("file1.yml");
-        Map<String, Object> actualMap = readFile(filePath);
-        assertEquals(EXTENDED_MAP, actualMap);
-    }
-
-    @Test
-    void testReadEmptyYAMLFile() throws Exception {
-        String filePath = getPathFor("emptyFile.yml");
-        Map<String, Object> actualMap = readFile(filePath);
-        assertEquals(EXTENDED_EMPTY_MAP, actualMap);
-    }
-
-    @Test
-    void testReadUnsupportedFile() {
-        String filePath = getPathFor("unsupportedFile.txt");
+    @ParameterizedTest(name = "{index} - {0}")
+    @ValueSource(strings = {"unsupportedFile.txt", "unsupportedFile2"})
+    void testReadUnsupportedFile(String fileName) {
+        String filePath = getPathFor(fileName);
         assertThrows(IllegalArgumentException.class, () -> readFile(filePath));
     }
 
-    @Test
-    void testReadUnsupportedFile2() {
-        String filePath = getPathFor("unsupportedFile2");
-        assertThrows(IllegalArgumentException.class, () -> readFile(filePath));
-    }
-
-    @Test
-    void testDifferJson() {
-        String filePath1 = getPathFor("file1.json");
-        String filePath2 = getPathFor("file2.json");
-        try {
-            String actual = generate(filePath1, filePath2, "stylish");
-            String extended = Files.readString(Path.of(getPathFor("extendedStylishResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error Json file: {}", e.getMessage());
-        }
-    }
-
-    @Test
-    void testDifferYAML() {
-        String filePath1 = getPathFor("file1.yml");
-        String filePath2 = getPathFor("file2.yml");
-        try {
-            String actual = generate(filePath1, filePath2, "stylish");
-            String extended = Files.readString(Path.of(getPathFor("extendedStylishResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error YAML file: {}", e.getMessage());
-        }
-    }
-
-    @Test
-    void testPlainDifferJson() {
-        String filePath1 = getPathFor("file1.json");
-        String filePath2 = getPathFor("file2.json");
-        try {
-            String actual = generate(filePath1, filePath2, "plain");
-            String extended = Files.readString(Path.of(getPathFor("extendedPlainResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error Json to Plain file: {}", e.getMessage());
-        }
-    }
-
-    @Test
-    void testPlainDifferYAML() {
-        String filePath1 = getPathFor("file1.yml");
-        String filePath2 = getPathFor("file2.yml");
-        try {
-            String actual = generate(filePath1, filePath2, "plain");
-            String extended = Files.readString(Path.of(getPathFor("extendedPlainResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error YAML to Plain file: {}", e.getMessage());
-        }
-    }
-
-    @Test
-    void testJsonDifferJson() {
-        String filePath1 = getPathFor("file1.json");
-        String filePath2 = getPathFor("file2.json");
-        try {
-            String actual = generate(filePath1, filePath2, "json");
-            String extended = Files.readString(Path.of(getPathFor("extendedJsonResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error Json to Json file: {}", e.getMessage());
-        }
-    }
-
-    @Test
-    void testJsonDifferYAML() {
-        String filePath1 = getPathFor("file1.yml");
-        String filePath2 = getPathFor("file2.yml");
-        try {
-            String actual = generate(filePath1, filePath2, "json");
-            String extended = Files.readString(Path.of(getPathFor("extendedJsonResult")));
-            assertEquals(extended, actual);
-        } catch (Exception e) {
-            LOG.error("Error YAML to Json file: {}", e.getMessage());
-        }
+    @ParameterizedTest(name = "{index} - {0}")
+    @CsvSource({
+            "file1.json, file2.json, stylish, extendedStylishResult",
+            "file1.yml, file2.yml, stylish, extendedStylishResult",
+            "file1.json, file2.json, plain, extendedPlainResult",
+            "file1.yml, file2.yml, plain, extendedPlainResult",
+            "file1.json, file2.json, json, extendedJsonResult",
+            "file1.yml, file2.yml, json, extendedJsonResult"})
+    void testDiffer(String file1, String file2, String format, String resultFile) throws IOException {
+        String filePath1 = getPathFor(file1);
+        String filePath2 = getPathFor(file2);
+        String actual = generate(filePath1, filePath2, format);
+        String extended = Files.readString(Path.of(getPathFor(resultFile)));
+        assertEquals(extended, actual);
     }
 
     @Test
