@@ -79,12 +79,12 @@ class TestApp {
 
     @ParameterizedTest(name = "{index} - {0}")
     @CsvSource({
-            "file1.json, file2.json, stylish, extendedStylishResult",
-            "file1.yml, file2.yml, stylish, extendedStylishResult",
-            "file1.json, file2.json, plain, extendedPlainResult",
-            "file1.yml, file2.yml, plain, extendedPlainResult",
-            "file1.json, file2.json, json, extendedJsonResult",
-            "file1.yml, file2.yml, json, extendedJsonResult"})
+        "file1.json, file2.json, stylish, extendedStylishResult",
+        "file1.yml, file2.yml, stylish, extendedStylishResult",
+        "file1.json, file2.json, plain, extendedPlainResult",
+        "file1.yml, file2.yml, plain, extendedPlainResult",
+        "file1.json, file2.json, json, extendedJsonResult",
+        "file1.yml, file2.yml, json, extendedJsonResult"})
     void testDiffer(String file1, String file2, String format, String resultFile) throws IOException {
         String filePath1 = getPathFor(file1);
         String filePath2 = getPathFor(file2);
